@@ -68,7 +68,7 @@ Instead of `true`, our function is currently returning `undefined`. We'll invest
 3. Refresh the page
 4. Investigate the State
 5. Find the Bug
-6. Refactor
+6. Refactore
 
 #### Step One - Add the Debugger
 
@@ -115,9 +115,7 @@ function isEven(number){
 }
 ```
 
-Now we'll click the blue forward arrow button to `exit` debugger. It's pretty much the same as typing `exit` in Pry. 
-
-![debuggers blue unpause arrow](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/blue-arrow.png)
+Now we'll click the blue forward arrow button to `exit` debugger. It's pretty much the same as typing `exit` in Pry: ![debuggers blue unpause arrow](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/blue-arrow.png)
 
 Let's refresh the page now that we've removed the debugger from our code and replaced it with a return statement. We still get an error, expect `0` to be `true`:
 
