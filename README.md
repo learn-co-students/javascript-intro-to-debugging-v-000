@@ -39,15 +39,19 @@ You know you're not there yet, but you want to go ahead and run the tests to see
 
 Once the `learn` gem is installed, you would run `learn -b`. The `-b` flag tells the `learn` gem to open andrun all the tests in the browser. When you run `learn -b`, you should see something like this:
 
-![](TODO)
+![four failures](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/four-failures.png)
 
-The command `learn -b` will automatically run every single test in your test suite, just like running `learn` in a Ruby lab runs every Ruby test. To just run the first test, you click on the description of the test with your cursor. This will take you to a new page that looks something like this:
+The command `learn -b` will automatically run every single test in your test suite, just like running `learn` in a Ruby lab runs every Ruby test. To just run the first test, you click on the description of the test with your cursor. 
 
-![](TODO)
+![description underlined](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/click-on-description.png)
+
+This will take you to a new page that looks something like this:
+
+![one test](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/one-test.png)
 
 To go back to the main page to run all tests, you can either navigate `back` in your browser manually or click the `- run all` link:
 
-![](TODO)
+![run all tests link](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/run-all.png)
 
 Let's navigate back to running just one test by clicking on it's description again. Cool, we're at the test:
 
@@ -81,23 +85,23 @@ function isEven(number){
 
 Now we'll navigate back to our browser where that single Jasmine test is open and open our browser's console. (Remember, the shortcut to open the console in Chrome is `command` + `option` + `J` while the shortcut in Firefox uses a letter "K" instead of the letter "J".)
 
-![](TODO)
+![one test console open](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/one-test-open-console.png)
 
 #### Step Three - Refresh the Page
 
 Now we'll refresh the page in the browser. Sure, you can use your cursor and click on the circular refresh arrow but we're developers so we'll use the `command` + `R` shortcut instead. After refreshing, the page will be mostly greyed out and the message `Paused in debugger` should appear up top, like this:
 
-![](TODO)
+![paused in debugger](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/paused-in-debugger-2.png)
 
 #### Step Four - Investigate the State
 
 Navigate back to the console, either by clicking console or typing in the very bottom screen on Chrome, and type `number`. We expect it to be eight, which is the parameter the spec is passing to our function, and it is:
 
-![](TODO)
+![number revealed in console](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/number.png)
 
 Now let's type `remainder`. It should be zero, as eight divided by two has a remainder of zero, and it is:
 
-![](TODO)
+![number and remainder revealed in console](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/number-remainder.png)
 
 
 #### Step Five - Find the Bug
@@ -113,11 +117,11 @@ function isEven(number){
 
 Now we'll click the blue forward arrow button to `exit` debugger. It's pretty much the same as typing `exit` in Pry. 
 
-![](TODO)
+![debuggers blue unpause arrow](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/blue-arrow.png)
 
 Let's refresh the page now that we've removed the debugger from our code and replaced it with a return statement. We still get an error, expect `0` to be `true`:
 
-![](TODO)
+![expected 0 to be true error](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/expected-zero-to-be-true.png)
 
 Instead of returning the remainder of a division by two, the spec wants us to return a boolean (true/false). Let's add some logic to accomodate this:
 
@@ -134,11 +138,11 @@ function isEven(number){
 
 Let's save our JavaScript and refresh our browser. We now see this:
 
-![](TODO)
+![first test passing](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/one-passing.png)
 
 Now that the first test is passing, let's click on `run all`. Looks like we're passing all the tests:
 
-![](TODO)
+![four passing tests](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/all-passing.png)
 
 #### Step Six - Refactor
 
