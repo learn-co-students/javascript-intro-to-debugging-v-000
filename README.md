@@ -61,7 +61,7 @@ it("returns true for the number eight", function() {
 });
 ```
 
-Instead of `true`, our function is currently returning undefined. We'll investigate this using the debugger for demonstration purposes. To do this, we'll do three things:
+Instead of `true`, our function is currently returning `undefined`. We'll investigate this using the debugger for demonstration purposes. To do this, we'll do three things:
 
 1. Add the debugger to our code and save it
 2. From the Jasmine test, we'll open the browser's console
