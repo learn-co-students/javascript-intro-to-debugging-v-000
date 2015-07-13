@@ -28,8 +28,9 @@ function isEven(number){
 }
 ```
 
-#### Running the
-You know you're not there yet, but you want to go ahead and run the tests to see what the tests say. To do this, intall the `learn` gem and give it your OAuth key:
+#### Running the Test Suite
+
+You know you're not there yet, but you want to go ahead and run the tests to see what the tests say. To do this, intall the `learn-co` gem and give it your OAuth key:
 
 ```shell
 > gem sources -a http://flatiron:33west26@gems.flatironschool.com
