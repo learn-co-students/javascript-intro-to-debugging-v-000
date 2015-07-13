@@ -69,7 +69,7 @@ Instead of `true`, our function is currently returning `undefined`. We'll invest
 3. Refresh the page
 4. Investigate the State
 5. Find the Bug
-6. Refactore
+6. Refactor
 
 #### Step One - Add the Debugger
 
