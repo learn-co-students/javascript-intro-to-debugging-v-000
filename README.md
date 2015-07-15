@@ -8,7 +8,7 @@
 
 ## About
 
-While debugging Ruby code, you probably used the [Pry gem](http://pryrepl.org/). JavaScript has an equivalent: the [debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger). Also in Ruby, you may have run tests one at a time by specifying line numbers. Jasmine, the testing framework we use for JavaScript here at Flatiron, also allows you to run just one test at a time. We'll go over how to use the debugger, and how to run a single test, in the example below.
+While debugging Ruby code, you probably used the [Pry gem](http://pryrepl.org/). JavaScript has an equivalent: the [debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger). Also in Ruby, you may have run tests one at a time by specifying line numbers. Jasmine, the testing framework we use for JavaScript here at Flatiron School, also allows you to run just one test at a time. We'll go over how to use the debugger and how to run a single test in the example below.
 
 ## Example
 
@@ -20,7 +20,7 @@ isEven(8) // Returns true
 isEven(3) // Returns false
 ```
 
-You've made some progress, you know you want to use the modulus operator, which behaves exactly as it did in Ruby:
+You've made some progress, you know you want to use the modulus operator, which behaves exactly as it does in Ruby:
 
 ```javascript
 function isEven(number){
@@ -30,7 +30,7 @@ function isEven(number){
 
 #### Running the Test Suite
 
-You know you're not there yet, but you want to go ahead and run the tests to see what the tests say. To do this, intall the `learn-co` gem and give it your OAuth key:
+You know you're not there yet, but you want to go ahead and run the tests to see what they say. To do this, intall the `learn-co` gem and give it your OAuth key:
 
 ```shell
 > gem sources -a http://flatiron:33west26@gems.flatironschool.com
@@ -38,7 +38,7 @@ You know you're not there yet, but you want to go ahead and run the tests to see
 > learn  <--- follow the instructions in the print out
 ```
 
-Once the `learn` gem is installed, you would run `learn -b`. The `-b` flag tells the `learn` gem to open andrun all the tests in the browser. When you run `learn -b`, you should see something like this:
+Once the `learn` gem is installed, you would run `learn -b`. The `-b` flag tells the `learn` gem to open and run all the tests in the browser. When you run `learn -b`, you should see something like this:
 
 ![four failures](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/four-failures.png)
 
@@ -54,7 +54,7 @@ To go back to the main page to run all tests, you can either navigate `back` in 
 
 ![run all tests link](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/run-all.png)
 
-Let's navigate back to running just one test by clicking on it's description again. Cool, we're at the test:
+Let's navigate back to running just one test by clicking on its description again. Cool, we're at the test:
 
 ```javascript
 it("returns true for the number eight", function() {
@@ -67,8 +67,8 @@ Instead of `true`, our function is currently returning `undefined`. We'll invest
 1. Add the debugger to our code and save it
 2. From the Jasmine test, we'll open the browser's console
 3. Refresh the page
-4. Investigate the State
-5. Find the Bug
+4. Investigate the state
+5. Find the bug
 6. Refactor
 
 #### Step One - Add the Debugger
@@ -96,11 +96,11 @@ Now we'll refresh the page in the browser. Sure, you can use your cursor and cli
 
 #### Step Four - Investigate the State
 
-Navigate back to the console, either by clicking console or typing in the very bottom screen on Chrome, and type `number`. We expect it to be eight, which is the parameter the spec is passing to our function, and it is:
+Navigate back to the console, either by clicking console or typing in the very bottom screen on Chrome, and enter `number`. We expect it to be eight, which is the parameter the spec is passing to our function, and it is:
 
 ![number revealed in console](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/number.png)
 
-Now let's type `remainder`. It should be zero, as eight divided by two has a remainder of zero, and it is:
+Now let's enter `remainder`. It should be zero, as eight divided by two has a remainder of zero, and it is:
 
 ![number and remainder revealed in console](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/number-remainder.png)
 
@@ -122,7 +122,7 @@ Let's refresh the page now that we've removed the debugger from our code and rep
 
 ![expected 0 to be true error](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/expected-zero-to-be-true.png)
 
-Instead of returning the remainder of resulting from dividing by two, the spec wants us to return a boolean (`true`/`false`). Let's add some logic to accomodate this:
+Instead of returning the remainder from dividing by two, the spec wants us to return a boolean (`true`/`false`). Let's add some logic to accommodate this:
 
 ```javascript
 function isEven(number){
@@ -135,7 +135,7 @@ function isEven(number){
 }
 ```
 
-Let's save our JavaScript and refresh our browser. We now see this:
+Let's save our JavaScript and refresh the browser. We now see this:
 
 ![first test passing](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/one-passing.png)
 
