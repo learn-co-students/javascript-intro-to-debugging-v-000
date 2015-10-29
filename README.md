@@ -30,7 +30,7 @@ function isEven(number){
 
 #### Running the Test Suite
 
-You know you're not there yet, but you want to go ahead and run the tests to see what they say. To do this, intall the `learn-co` gem and give it your OAuth key:
+You know you're not there yet, but you want to go ahead and run the tests to see what they say. To do this, install the `learn-co` gem and give it your OAuth key:
 
 ```shell
 > gem sources -a http://flatiron:33west26@gems.flatironschool.com
