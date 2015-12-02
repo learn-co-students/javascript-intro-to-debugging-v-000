@@ -176,3 +176,5 @@ So much better! Go ahead and take a deep whiff of that new, clean code smell.
 ## Resources
 
 * [MDN - Debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
+
+<a href='https://learn.co/lessons/intro-to-debugging.js' data-visibility='hidden'>View this lesson on Learn.co</a>
