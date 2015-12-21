@@ -1,48 +1,24 @@
 # JavaScript Debugging with Jasmine
 
-## Overview
+Testing is important no matter what language you're working with. There is always the chance that your code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. In JavaScript, Jasmine is our testing library, and Debugger is our favorite debugging tool.
 
-* About
-* Example
-* Resources
+## Objectives
 
-## About
++ Read Jasmine tests
++ Run Jasmine tests
++ Use JS debugger to run through code line by line
 
-While debugging Ruby code, you probably used the [Pry gem](http://pryrepl.org/). JavaScript has an equivalent: the [debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger). Also in Ruby, you may have run tests one at a time by specifying line numbers. Jasmine, the testing framework we use for JavaScript here at Flatiron School, also allows you to run just one test at a time. We'll go over how to use the debugger and how to run a single test in the example below.
-
-## Example
-
-Let's say you're working on a lab where your objective is to make a function called `isEven` that takes one parameter: a number. If the number is even, it should return `true` and if is odd, it should return `false`:
-
-```javascript
-isEven(8) // Returns true
-
-isEven(3) // Returns false
-```
-
-You've made some progress, you know you want to use the modulus operator, which behaves exactly as it does in Ruby:
-
-```javascript
-function isEven(number){
-  var remainder = number % 2;
-}
-```
 
 #### Running the Test Suite
+We've got a test suite set up for you, and we're going to walk through how to run Jasmine tests to correct our code. The tests are located in `spec/intro_spec.js`. You'll be coding your solution in `code.js`.
 
-You know you're not there yet, but you want to go ahead and run the tests to see what they say. To do this, install the `learn-co` gem and give it your OAuth key:
+To run Jasmine tests, you enter `learn -b`. The `-b` flag tells the `learn` gem to open and run all the tests in the browser, which give them a much more readable output then in the terminal. To see the test output in the terminal, just enter `learn`.
 
-```shell
-> gem sources -a http://flatiron:33west26@gems.flatironschool.com
-> gem install learn-co
-> learn  <--- follow the instructions in the print out
-```
+The command `learn -b` will automatically run every single test in your test suite, just like running `learn` in a Ruby lab runs every Ruby test. 
 
-Once the `learn` gem is installed, you would run `learn -b`. The `-b` flag tells the `learn` gem to open and run all the tests in the browser. When you run `learn -b`, you should see something like this:
 
-![four failures](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/four-failures.png)
 
-The command `learn -b` will automatically run every single test in your test suite, just like running `learn` in a Ruby lab runs every Ruby test. To just run the first test, you click on the description of the test with your cursor. 
+To just run the first test, you click on the description of the test with your cursor. 
 
 ![description underlined](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/click-on-description.png)
 
