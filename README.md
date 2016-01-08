@@ -28,7 +28,7 @@ That should take you to a new page with the output for just that test. To go bac
 ### Solving First Two Tests
 
 
-We're just getting started, so we expected that all our tests would fail. Let's go ahead and tackle the first test. The first error we see from Jasmine is `ReferenceError: sayHeyFriend is not defined`. So let's go ahead and define that function in `code.js`.
+We're just getting started, so we expected that all our tests would fail. Let's go ahead and tackle the first test. The first error we see from Jasmine is `ReferenceError: sayHey is not defined`. So let's go ahead and define that function in `code.js`.
 
 ```js
 function sayHey(){
