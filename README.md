@@ -14,9 +14,9 @@ We've got a test suite set up for you, and we're going to walk through how to ru
 
 To run Jasmine tests, you enter `learn -b`. The `-b` flag tells the `learn` gem to open and run all the tests in the browser, which give them a much more readable output then in the terminal. To see the test output in the terminal, just enter `learn`.
 
-The command `learn -b` will automatically run every single test in your test suite, just like running `learn` in a Ruby lab runs every Ruby test. 
+The command `learn -b` will automatically run every single test in your test suite, just like running `learn` in a Ruby lab runs every Ruby test.
 
-Let's go ahead and run the tests now. You should see the results for every testpop in the browser like this:
+Let's go ahead and run the tests now. You should see the results for every test in the browser like this:
 
 ![jasmine test output](https://s3.amazonaws.com/learn-verified/jasmine-tests.png)
 
@@ -32,7 +32,7 @@ We're just getting started, so we expected that all our tests would fail. Let's 
 
 ```js
 function sayHey(){
-  
+
 }
 ```
 Save your changes and go back to the browser and click on the first test. You should see an error message that says `Expected undefined to be 'hey friends!'.` which basically means that the function return is currently `undefined` instead of `"hey friends!"`. Let's go ahead and add a return value to our function:
@@ -45,19 +45,19 @@ function sayHey(){
 
 Click the back arrow in the browser, and then click on the name of the first test to rerun that it. The test should now pass!
 
-Click the back arrow again to go back to the main page with all the tests. You should notice the two green lights followed by two red x's in the top left corner. We actually passed the first two tests! 
+Click the back arrow again to go back to the main page with all the tests. You should notice the two green lights followed by two red x's in the top left corner. We actually passed the first two tests!
 
 The second test just checked to make sure the return value was in fact a string. Because we had the correct return value, we automatically passed the second test because it was the correct return value.
 
 ### Last Two Tests With Debugger
 
-Our last two tests are failing. You should see the error `ReferenceError: sayHeyFriend is not defined`. 
+Our last two tests are failing. You should see the error `ReferenceError: sayHeyFriend is not defined`.
 
 Let's go ahead and define that function in `code.js`:
 
 ```js
 function sayHeyFriend(){
-  
+
 }
 ```
 
