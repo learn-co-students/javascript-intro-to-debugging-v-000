@@ -72,7 +72,7 @@ Instead of plowing through the tests by making assumptions about what they want,
 
 #### Step One - Add the Debugger
 
-Let's put the debugger below where we created our `remainder` variable, like so:
+Let's put the debugger inside our function definition, like so:
 
 ```javascript
 function sayHeyFriend(name){
@@ -82,7 +82,7 @@ function sayHeyFriend(name){
 
 #### Step Two - Open the Console
 
-Now we'll navigate back to our browser and open that single Jasmine test is open. From there, open your browser's console. (Remember, the shortcut to open the console in Chrome is `command` + `option` + `J` while the shortcut in Firefox uses a letter "K" instead of the letter "J".)
+Now we'll navigate back to our browser and open that single Jasmine test. From there, open your browser's console. (Remember, the shortcut to open the console in Chrome is `command` + `option` + `J` while the shortcut in Firefox uses a letter "K" instead of the letter "J".)
 
 ![one test console open](https://s3.amazonaws.com/learn-verified/debugger.png)
 
