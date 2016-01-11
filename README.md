@@ -1,6 +1,6 @@
 # JavaScript Debugging with Jasmine
 
-Testing is important no matter what language you're working with. There is always the chance that your code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. In JavaScript, Jasmine is our testing library, and Debugger is our favorite debugging tool.
+Testing is important no matter what language you're working with. There is always the chance that your code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. In JavaScript, Jasmine is our testing library, and Debugger is our favorite debugging tool. Jasmine is our testing library of choice for JavaScript. It should look very similar to RSpec in Ruby. We love Jasmine because it's easy to read and gives you a great in-browser interface to view the tests.
 
 ## Objectives
 
