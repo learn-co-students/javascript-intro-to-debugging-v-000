@@ -1,177 +1,129 @@
 # JavaScript Debugging with Jasmine
 
-## Overview
+Testing is important no matter what language you're working with. There is always the chance that your code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. In JavaScript, Jasmine is our testing library, and Debugger is our favorite debugging tool. Jasmine is our testing library of choice for JavaScript. It should look very similar to RSpec in Ruby. We love Jasmine because it's easy to read and gives you a great in-browser interface to view the tests.
 
-* About
-* Example
-* Resources
+## Objectives
 
-## About
++ Read Jasmine tests
++ Run Jasmine tests
++ Use JS debugger to run through code line by line
 
-While debugging Ruby code, you probably used the [Pry gem](http://pryrepl.org/). JavaScript has an equivalent: the [debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger). Also in Ruby, you may have run tests one at a time by specifying line numbers. Jasmine, the testing framework we use for JavaScript here at Flatiron School, also allows you to run just one test at a time. We'll go over how to use the debugger and how to run a single test in the example below.
 
-## Example
+### Running the Test Suite
+We've got a test suite set up for you, and we're going to walk through how to run Jasmine tests to correct our code. The tests are located in `spec/intro_spec.js`. You'll be coding your solution in `code.js`.
 
-Let's say you're working on a lab where your objective is to make a function called `isEven` that takes one parameter: a number. If the number is even, it should return `true` and if is odd, it should return `false`:
+To run Jasmine tests, you enter `learn -b`. The `-b` flag tells the `learn` gem to open and run all the tests in the browser, which give them a much more readable output then in the terminal. To see the test output in the terminal, just enter `learn`.
 
-```javascript
-isEven(8) // Returns true
+The command `learn -b` will automatically run every single test in your test suite, just like running `learn` in a Ruby lab runs every Ruby test.
 
-isEven(3) // Returns false
+Let's go ahead and run the tests now. You should see the results for every test in the browser like this:
+
+![jasmine test output](https://s3.amazonaws.com/learn-verified/jasmine-tests.png)
+
+If you just want to rerun a single test, go ahead and click on that test
+![view one test results](https://s3.amazonaws.com/learn-verified/jasmine-one-test.png)
+
+That should take you to a new page with the output for just that test. To go back to the main page to run all tests, you can either navigate `back` in your browser manually or click the `- run all` link:
+
+### Solving First Two Tests
+
+
+We're just getting started, so we expected that all our tests would fail. Let's go ahead and tackle the first test. The first error we see from Jasmine is `ReferenceError: sayHey is not defined`. So let's go ahead and define that function in `code.js`.
+
+```js
+function sayHey(){
+
+}
 ```
+Save your changes and go back to the browser and click on the first test. You should see an error message that says `Expected undefined to be 'hey friends!'.` which basically means that the function return is currently `undefined` instead of `"hey friends!"`. Let's go ahead and add a return value to our function:
 
-You've made some progress, you know you want to use the modulus operator, which behaves exactly as it does in Ruby:
-
-```javascript
-function isEven(number){
-  var remainder = number % 2;
+```js
+function sayHey(){
+  return "hey friends!"
 }
 ```
 
-#### Running the Test Suite
+Click the back arrow in the browser, and then click on the name of the first test to rerun that it. The test should now pass!
 
-You know you're not there yet, but you want to go ahead and run the tests to see what they say. To do this, install the `learn-co` gem and give it your OAuth key:
+Click the back arrow again to go back to the main page with all the tests. You should notice the two green lights followed by two red x's in the top left corner. We actually passed the first two tests!
 
-```shell
-> gem sources -a http://flatiron:33west26@gems.flatironschool.com
-> gem install learn-co
-> learn  <--- follow the instructions in the print out
+The second test just checked to make sure the return value was in fact a string. Because we had the correct return value, we automatically passed the second test because it was the correct return value.
+
+### Last Two Tests With Debugger
+
+Our last two tests are failing. You should see the error `ReferenceError: sayHeyFriend is not defined`.
+
+Let's go ahead and define that function in `code.js`:
+
+```js
+function sayHeyFriend(){
+
+}
 ```
 
-Once the `learn` gem is installed, you would run `learn -b`. The `-b` flag tells the `learn` gem to open and run all the tests in the browser. When you run `learn -b`, you should see something like this:
+Instead of plowing through the tests by making assumptions about what they want, we're going to use the JavaScript Debugger to test our code. We'll be following these steps:
 
-![four failures](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/four-failures.png)
-
-The command `learn -b` will automatically run every single test in your test suite, just like running `learn` in a Ruby lab runs every Ruby test. To just run the first test, you click on the description of the test with your cursor. 
-
-![description underlined](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/click-on-description.png)
-
-This will take you to a new page that looks something like this:
-
-![one test](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/one-test.png)
-
-To go back to the main page to run all tests, you can either navigate `back` in your browser manually or click the `- run all` link:
-
-![run all tests link](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/run-all.png)
-
-Let's navigate back to running just one test by clicking on its description again. Cool, we're at the test:
-
-```javascript
-it("returns true for the number eight", function() {
-  expect(isEven(8)).toBe(true);
-});
-```
-
-Instead of `true`, our function is currently returning `undefined`. We'll investigate this using the debugger for demonstration purposes. To do this, we'll follow the six steps below:
 
 1. Add the debugger to our code and save it
 2. From the Jasmine test, we'll open the browser's console
 3. Refresh the page
 4. Investigate the state
 5. Find the bug
-6. Refactor
 
 #### Step One - Add the Debugger
 
-Let's put the debugger below where we created our `remainder` variable, like so:
+Let's put the debugger inside our function definition, like so:
 
 ```javascript
-function isEven(number){
-  var remainder = number % 2;
+function sayHeyFriend(name){
   debugger;
 }
 ```
 
 #### Step Two - Open the Console
 
-Now we'll navigate back to our browser where that single Jasmine test is open and open our browser's console. (Remember, the shortcut to open the console in Chrome is `command` + `option` + `J` while the shortcut in Firefox uses a letter "K" instead of the letter "J".)
+Now we'll navigate back to our browser and open that single Jasmine test. From there, open your browser's console. (Remember, the shortcut to open the console in Chrome is `command` + `option` + `J` while the shortcut in Firefox uses a letter "K" instead of the letter "J".)
 
-![one test console open](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/one-test-open-console.png)
+![one test console open](https://s3.amazonaws.com/learn-verified/debugger.png)
 
 #### Step Three - Refresh the Page
 
 Now we'll refresh the page in the browser. Sure, you can use your cursor and click on the circular refresh arrow but we're developers so we'll use the `command` + `R` shortcut instead. After refreshing, the page will be mostly greyed out and the message `Paused in debugger` should appear up top, like this:
 
-![paused in debugger](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/paused-in-debugger-2.png)
+![paused in debugger](https://s3.amazonaws.com/learn-verified/debugged-paused.png)
 
 #### Step Four - Investigate the State
 
-Navigate back to the console, either by clicking console or typing in the very bottom screen on Chrome, and enter `number`. We expect it to be eight, which is the parameter the spec is passing to our function, and it is:
+Navigate back to the console, either by clicking console or typing in the very bottom screen on Chrome, and enter `name`. We expect it to be `"kristin`, which is the parameter the spec is passing to our function, and it is:
 
-![number revealed in console](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/number.png)
-
-Now let's enter `remainder`. It should be zero, as eight divided by two has a remainder of zero, and it is:
-
-![number and remainder revealed in console](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/number-remainder.png)
-
+![name revealed in console](https://s3.amazonaws.com/learn-verified/name-variable-debugger.png)
 
 #### Step Five - Find the Bug
 
 Around now, we might remember that our function is returning `undefined` instead of the value of the remainder because we didn't use the `return` keyword, so let's go ahead and add that and save the JavaScript file:
 
 ```javascript
-function isEven(number){
-  var remainder = number % 2;
-  return remainder;
+function sayHeyFriend(name){
+  return name;
 }
 ```
 
-Now we'll click the blue forward arrow button to `exit` debugger. It's pretty much the same as typing `exit` in Pry: ![debuggers blue unpause arrow](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/blue-arrow.png)
+Now we'll click the blue forward arrow button to exit debugger. It's pretty much the same as typing `exit` in Pry: ![debuggers blue unpause arrow](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/blue-arrow.png)
 
-Let's refresh the page now that we've removed the debugger from our code and replaced it with a return statement. We still get an error: Expected `0` to be `true`
+Let's refresh the page now that we've removed the debugger from our code and replaced it with a return statement. We still get an error: `Expected 'kristin' to be 'hey kristin!!'.`
 
-![expected 0 to be true error](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/expected-zero-to-be-true.png)
+We're just returning the name passed in as a parameter instead of greeting that person.
 
-Instead of returning the remainder from dividing by two, the spec wants us to return a boolean (`true`/`false`). Let's add some logic to accommodate this:
+Change your solution in `code.js`:
 
-```javascript
-function isEven(number){
-  var remainder = number % 2;
-  if (remainder == 0) {
-    return true;
-  } else {
-    return false;
-  }
+```js
+function sayHeyFriend(name){
+  return "hey " + name + "!!";
 }
 ```
 
-Let's save our JavaScript and refresh the browser. We now see this:
+Go ahead and run `learn -b` again, and all four tests should pass!
 
-![first test passing](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/one-passing.png)
-
-Now that the first test is passing, let's click on `run all`. Looks like we're passing all the tests:
-
-![four passing tests](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/all-passing.png)
-
-#### Step Six - Refactor
-
-Are we done? No way! The code we wrote is six lines, which is a crazy number of lines given how little the function is supposed to do. You might have noticed a couple ways the JavaScript above could be cleaned up. For instance, let's use a ternary operator instead of a five line if/else statement:
-
-```javascript
-function isEven(number){
-  var remainder = number % 2;
-  var bool = remainder == 0 ? true : false
-  return bool;
-}
-```
-That's a little better, but if you think about it, you could remove this ternary operator completely:
-
-```javascript
-function isEven(number){
-  var remainder = number % 2;
-  return remainder == 0;
-}
-```
-
-Which could become a one-liner like this:
-
-```javascript
-function isEven(number){
-  return number % 2 == 0;
-}
-```
-
-So much better! Go ahead and take a deep whiff of that new, clean code smell.
 
 ## Resources
 
