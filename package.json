@@ -1,0 +1,38 @@
+{
+  "name": "javascript-intro-to-debugging",
+  "version": "0.1.0",
+  "description": "Introduction to JavaScript debugging on Learn",
+  "main": "code.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "jsdom": "^9.4.1",
+    "mocha": "^2.5.3",
+    "mocha-multi": "^0.9.0",
+    "node-inspector": "^0.12.8"
+  },
+  "scripts": {
+    "debug": "node-debug --hidden node_modules _mocha --watch",
+    "debug-ide": "./bin/debug-ide",
+    "test": "mocha -R mocha-multi --reporter-options nyan=-,json=.results.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learn-co-curriculum/javascript-intro-to-debugging.git"
+  },
+  "keywords": [
+    "mocha",
+    "javascript",
+    "learn",
+    "flatiron"
+  ],
+  "author": "The Flatiron School",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/javascript-intro-to-debugging/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/javascript-intro-to-debugging#readme"
+}

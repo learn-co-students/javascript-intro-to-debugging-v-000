@@ -1,6 +1,0 @@
-# A list of javascript files required for the project, in dependency order
-javascripts:
-  files:
-    - code.js
-  specs:
-    - spec/intro_spec.js
