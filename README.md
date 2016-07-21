@@ -1,104 +1,98 @@
-# JavaScript Debugging with Jasmine
+# JavaScript Debugging with Mocha
 
-Testing is important no matter what language you're working with. There is always the chance that your code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. In JavaScript, Jasmine is our testing library, and Debugger is our favorite debugging tool. Jasmine is our testing library of choice for JavaScript. It should look very similar to RSpec in Ruby. We love Jasmine because it's easy to read and gives you a great in-browser interface to view the tests.
+Testing is important no matter what language we're working with. There is always the chance that our code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. JavaScript provides tons of testing libraries; we're going to use [Mocha](mochajs.org). JavaScript comes with a built in debugging tool, called `debugger`.
 
 ## Objectives
 
-+ Read Jasmine tests
-+ Run Jasmine tests
-+ Use JS debugger to run through code line by line
+1. Read Mocha tests
+2. Run Mocha tests
+3. Use `debugger` to run through code line by line
 
+### Running the test suite
 
-### Running the Test Suite
-We've got a test suite set up for you, and we're going to walk through how to run Jasmine tests to correct our code. The tests are located in `spec/intro_spec.js`. You'll be coding your solution in `code.js`.
+We've got a test suite set up for you, and we're going to walk through how to run Mocha tests to correct our code. The tests are located in `test/index-test.js`. You'll be writing your solution in `index.js`. Note that our test file has the same name as our application file, just with a `'-test'` prefix. This is a convention that we'll see (in various forms) a lot — and it's a good one to follow, as it makes it clear which tests cover which parts of the application.
 
-To run Jasmine tests, you enter `learn -b`. The `-b` flag tells the `learn` gem to open and run all the tests in the browser, which give them a much more readable output then in the terminal. To see the test output in the terminal, just enter `learn`.
+To run Mocha tests, you enter `learn` in your terminal (in the Learn IDE or in Terminal.app).
 
-The command `learn -b` will automatically run every single test in your test suite, just like running `learn` in a Ruby lab runs every Ruby test.
+The command `learn` will automatically run every single test in your test suite. We'll cover how to run a single test file or even a single test below.
 
 Let's go ahead and run the tests now. You should see the results for every test in the browser like this:
 
-![jasmine test output](https://s3.amazonaws.com/learn-verified/jasmine-tests.png)
+![mocha test output](https://curriculum-content.s3.amazonaws.com/skills-based-js/mocha_test_output.png)
 
-If you just want to rerun a single test, go ahead and click on that test
-![view one test results](https://s3.amazonaws.com/learn-verified/jasmine-one-test.png)
+Well, that's not very exciting. Let's make sure we can get these tests to pass!
 
-That should take you to a new page with the output for just that test. To go back to the main page to run all tests, you can either navigate `back` in your browser manually or click the `- run all` link:
+### Solving the first test
 
-### Solving First Two Tests
+We're just getting started, so we expected that all our tests would fail. Let's go ahead and tackle the first test. The first error we see from Jasmine is `ReferenceError: sayHey is not defined`. So let's go ahead and define that function in `index.js`.
 
+```js
+function sayHey() {
 
-We're just getting started, so we expected that all our tests would fail. Let's go ahead and tackle the first test. The first error we see from Jasmine is `ReferenceError: sayHey is not defined`. So let's go ahead and define that function in `code.js`.
+}
+```
+Save your changes and go back to the browser and click on the first test. You should see an error message that says `Expected undefined to be 'Hey!'`. This makes sense, because we haven't provided a return value for our function yet — so when the function runs, the result is simply `undefined`. Our test expects the result to be the string `'Hey!'`. Let's go ahead and add a return value to our function:
 
 ```js
 function sayHey(){
-
+  return "Hey!"
 }
 ```
-Save your changes and go back to the browser and click on the first test. You should see an error message that says `Expected undefined to be 'hey friends!'.` which basically means that the function return is currently `undefined` instead of `"hey friends!"`. Let's go ahead and add a return value to our function:
+
+Run `learn` again — the test should now pass!
+
+### Solving the last test with `debugger`
+
+Our last test is failing. You should see the error `ReferenceError: sayHeyFriend is not defined`.
+
+Let's go ahead and define that function in `index.js`:
 
 ```js
-function sayHey(){
-  return "hey friends!"
-}
-```
-
-Click the back arrow in the browser, and then click on the name of the first test to rerun that it. The test should now pass!
-
-Click the back arrow again to go back to the main page with all the tests. You should notice the two green lights followed by two red x's in the top left corner. We actually passed the first two tests!
-
-The second test just checked to make sure the return value was in fact a string. Because we had the correct return value, we automatically passed the second test because it was the correct return value.
-
-### Last Two Tests With Debugger
-
-Our last two tests are failing. You should see the error `ReferenceError: sayHeyFriend is not defined`.
-
-Let's go ahead and define that function in `code.js`:
-
-```js
-function sayHeyFriend(){
+function sayHeyFriend() {
 
 }
 ```
 
-Instead of plowing through the tests by making assumptions about what they want, we're going to use the JavaScript Debugger to test our code. We'll be following these steps:
-
+Instead of plowing through the tests by making assumptions about what they want, we're going to use the JavaScript `debugger` to test our code. We'll be following these steps:
 
 1. Add the debugger to our code and save it
-2. From the Jasmine test, we'll open the browser's console
-3. Refresh the page
-4. Investigate the state
-5. Find the bug
+2. From the Mocha test, we'll open up a console in the browser
+3. Investigate the state
+4. Find the bug
 
 #### Step One - Add the Debugger
 
-Let's put the debugger inside our function definition, like so:
+Let's put the `debugger` inside our function definition, like so (we're also adding the `name` argument):
 
 ```javascript
-function sayHeyFriend(name){
+function sayHeyFriend(name) {
   debugger;
 }
 ```
 
 #### Step Two - Open the Console
 
-Now we'll navigate back to our browser and open that single Jasmine test. From there, open your browser's console. (Remember, the shortcut to open the console in Chrome is `command` + `option` + `J` while the shortcut in Firefox uses a letter "K" instead of the letter "J".)
+Now we'll run our tests so that they're aware of the debugger. Simply run `npm run debug` if you're working locally, or `npm run debug-ide` if you're working in the IDE.
 
-![one test console open](https://s3.amazonaws.com/learn-verified/debugger.png)
+**Flat fact**: `npm` is a package manager originally intended for the Node.js runtime but now used by the entire JavaScript ecosystem. We use it here because we want our tests to run flexibly in a lot of different environments — it helps us pull in the libraries that our code needs to run.
 
-#### Step Three - Refresh the Page
+If you're working locally, an instance of Chrome should open up; from the IDE, you'll be presented with a URL like this
 
-Now we'll refresh the page in the browser. Sure, you can use your cursor and click on the circular refresh arrow but we're developers so we'll use the `command` + `R` shortcut instead. After refreshing, the page will be mostly greyed out and the message `Paused in debugger` should appear up top, like this:
+![ide debugger](https://curriculum-content.s3.amazonaws.com/skills-based-js/ide_debugger.png)
 
-![paused in debugger](https://s3.amazonaws.com/learn-verified/debugged-paused.png)
+**Your URL will be slightly different.** Copy and paste this URL into Chrome (you _must_ use Chrome for debugging in this case).
 
-#### Step Four - Investigate the State
+From there, open your browser's console. (Remember, the shortcut to open the console in Chrome is `command` + `option` + `J`.)
 
-Navigate back to the console, either by clicking console or typing in the very bottom screen on Chrome, and enter `name`. We expect it to be `"kristin`, which is the parameter the spec is passing to our function, and it is:
+The page will be mostly greyed out and the message "Paused in debugger" should appear up top.
 
-![name revealed in console](https://s3.amazonaws.com/learn-verified/name-variable-debugger.png)
+#### Step Three - Investigate the State
 
-#### Step Five - Find the Bug
+Navigate back to the console, either by clicking console or typing in the very bottom screen on Chrome, and enter `name`. We expect it to be `"Kristin`, which is the parameter the spec is passing to our function, and it is:
+
+![name revealed in console](https://curriculum-content.s3.amazonaws.com/skills-based-js/javascript_debugger_open.png)
+
+#### Step Four - Find the Bug
 
 Around now, we might remember that our function is returning `undefined` instead of the value of the remainder because we didn't use the `return` keyword, so let's go ahead and add that and save the JavaScript file:
 
@@ -110,23 +104,21 @@ function sayHeyFriend(name){
 
 Now we'll click the blue forward arrow button to exit debugger. It's pretty much the same as typing `exit` in Pry: ![debuggers blue unpause arrow](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/blue-arrow.png)
 
-Let's refresh the page now that we've removed the debugger from our code and replaced it with a return statement. We still get an error: `Expected 'kristin' to be 'hey kristin!!'.`
+Let's run our tests without the debugger (simply enter `learn`). We still get an error: `Expected 'Kristin' to be 'Hey, Kristin!'.`
 
 We're just returning the name passed in as a parameter instead of greeting that person.
 
-Change your solution in `code.js`:
+Change your solution in `index.js`:
 
 ```js
 function sayHeyFriend(name){
-  return "hey " + name + "!!";
+  return `Hey, ${name}!`;
 }
 ```
 
-Go ahead and run `learn -b` again, and all four tests should pass!
+Go ahead and run `learn` again, and both tests should pass!
 
 
 ## Resources
 
 * [MDN - Debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-debugging.js' title='JavaScript Debugging with Jasmine'>JavaScript Debugging with Jasmine</a> on Learn.co and start learning to code for free.</p>
