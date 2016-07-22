@@ -2,6 +2,12 @@
 
 Testing is important no matter what language we're working with. There is always the chance that our code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. JavaScript provides tons of testing libraries; we're going to use [Mocha](mochajs.org). JavaScript comes with a built in debugging tool, called `debugger`.
 
+## Prefatory Note
+
+These debugging techniques are environment-dependent, and they are slowly
+rolling out across Learn's curriculum. We'll update lessons and labs as quickly
+as we can.
+
 ## Objectives
 
 1. Read Mocha tests
@@ -12,7 +18,7 @@ Testing is important no matter what language we're working with. There is always
 
 We've got a test suite set up for you, and we're going to walk through how to run Mocha tests to correct our code. The tests are located in `test/index-test.js`. You'll be writing your solution in `index.js`. Note that our test file has the same name as our application file, just with a `'-test'` prefix. This is a convention that we'll see (in various forms) a lot — and it's a good one to follow, as it makes it clear which tests cover which parts of the application.
 
-To run Mocha tests, you enter `learn` in your terminal (in the Learn IDE or in Terminal.app).
+To run Mocha tests, enter `learn` in your terminal (in the Learn IDE or in Terminal.app).
 
 The command `learn` will automatically run every single test in your test suite. We'll cover how to run a single test file or even a single test below.
 
@@ -41,7 +47,7 @@ function sayHey(){
 
 Run `learn` again — the test should now pass!
 
-### Solving the last test with `debugger`
+### Solving the last test with `debugger` — the hard way
 
 Our last test is failing. You should see the error `ReferenceError: sayHeyFriend is not defined`.
 
@@ -88,7 +94,8 @@ The page will be mostly greyed out and the message "Paused in debugger" should a
 
 #### Step Three - Investigate the State
 
-Navigate back to the console, either by clicking console or typing in the very bottom screen on Chrome, and enter `name`. We expect it to be `"Kristin`, which is the parameter the spec is passing to our function, and it is:
+You should see your function displayed in Chrome. Hover over the `name` arguemnt
+— we expect it to be `'Kristin'`, and indeed, it is!
 
 ![name revealed in console](https://curriculum-content.s3.amazonaws.com/skills-based-js/javascript_debugger_open.png)
 
@@ -103,6 +110,32 @@ function sayHeyFriend(name){
 ```
 
 Now we'll click the blue forward arrow button to exit debugger. It's pretty much the same as typing `exit` in Pry: ![debuggers blue unpause arrow](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/blue-arrow.png)
+
+### Using the `debugger` — the easy way
+
+Since we're writing browser-based JavaScript, one would expect that our tests
+could run in the browser. Let's add a `debugger` statement back to
+`sayHeyFriend()`:
+
+```javascript
+function sayHeyFriend(name) {
+  debugger
+  return name;
+}
+```
+
+Now open the file `test/index-test.html`. We should see... well, nothing. Open
+the console (`command` + `option` + `J` on a Mac in Chrome), refresh the page,
+and _voilà_ — your debugger awaits. Your entire JavaScript console is now
+within the context of this function, meaning that you can enter `name` in
+console, and you should see `'Kristin'`. As you can probably guess, this
+debugger is enormously powerful — it provides a bit too much for us to cover
+here. But if you'd like to learn more, we recommend reading through [Debugging
+JavaScript][MDN - Debugging JavaScript]
+and [debugger][MDN - Debugger]
+on MDN.
+
+## Wrap up - Pass those tests
 
 Let's run our tests without the debugger (simply enter `learn`). We still get an error: `Expected 'Kristin' to be 'Hey, Kristin!'.`
 
@@ -121,4 +154,5 @@ Go ahead and run `learn` again, and both tests should pass!
 
 ## Resources
 
-* [MDN - Debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
+- [MDN - Debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
+- [MDN - Debugging JavaScript](https://developer.mozilla.org/en-US/docs/Mozilla/Debugging/Debugging_JavaScript)
