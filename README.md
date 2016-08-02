@@ -1,6 +1,6 @@
 # JavaScript Debugging with Mocha
 
-Testing is important no matter what language we're working with. There is always the chance that our code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. JavaScript provides tons of testing libraries; we're going to use [Mocha](mochajs.org). JavaScript comes with a built in debugging tool, called `debugger`.
+Testing is important no matter what language we're working with. There is always the chance that our code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. JavaScript provides tons of testing libraries; we're going to use [Mocha](http://mochajs.org/). JavaScript comes with a built in debugging tool, called `debugger`.
 
 ## Prefatory Note
 
@@ -156,3 +156,5 @@ Go ahead and run `learn` again, and both tests should pass!
 
 - [MDN - Debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
 - [MDN - Debugging JavaScript](https://developer.mozilla.org/en-US/docs/Mozilla/Debugging/Debugging_JavaScript)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/javascript-intro-to-debugging'>Javascript Debugging with Mocha</a> on Learn.co and start learning to code for free.</p>
