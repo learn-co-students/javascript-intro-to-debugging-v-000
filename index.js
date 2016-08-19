@@ -1,7 +1,7 @@
 function sayHey(){
-  return "Hey!"
+  return "Hey!";
 }
 
-function sayHeyFriend() {
-  debugger;
+function sayHeyFriend(name) {
+  return `Hey, ${name}!`;
 }
