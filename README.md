@@ -16,7 +16,7 @@ as we can.
 
 ### Running the test suite
 
-We've got a test suite set up for you, and we're going to walk through how to run Mocha tests to correct our code. The tests are located in `test/index-test.js`. You'll be writing your solution in `index.js`. Note that our test file has the same name as our application file, just with a `'-test'` prefix. This is a convention that we'll see (in various forms) a lot — and it's a good one to follow, as it makes it clear which tests cover which parts of the application.
+We've got a test suite set up for you, and we're going to walk through how to run Mocha tests to correct our code. The tests are located in `test/index-test.js`. You'll be writing your solution in `index.js`. Note that our test file has the same name as our application file, just with a `'-test'` suffix. This is a convention that we'll see (in various forms) a lot — and it's a good one to follow, as it makes it clear which tests cover which parts of the application.
 
 To run Mocha tests, enter `learn` in your terminal (in the Learn IDE or in Terminal.app).
 
