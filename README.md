@@ -94,7 +94,7 @@ The page will be mostly greyed out and the message "Paused in debugger" should a
 
 #### Step Three - Investigate the State
 
-You should see your function displayed in Chrome. Hover over the `name` arguemnt
+You should see your function displayed in Chrome. Hover over the `name` argument
 — we expect it to be `'Kristin'`, and indeed, it is!
 
 ![name revealed in console](https://curriculum-content.s3.amazonaws.com/skills-based-js/javascript_debugger_open.png)
@@ -151,10 +151,11 @@ function sayHeyFriend(name){
 
 Go ahead and run `learn` again, and both tests should pass!
 
-
 ## Resources
+- [MDN - Debugger]
+- [MDN - Debugging JavaScript]
 
-- [MDN - Debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
-- [MDN - Debugging JavaScript](https://developer.mozilla.org/en-US/docs/Mozilla/Debugging/Debugging_JavaScript)
+[MDN - Debugger]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger
+[MDN - Debugging JavaScript]: https://developer.mozilla.org/en-US/docs/Mozilla/Debugging/Debugging_JavaScript
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/javascript-intro-to-debugging'>Javascript Debugging with Mocha</a> on Learn.co and start learning to code for free.</p>
