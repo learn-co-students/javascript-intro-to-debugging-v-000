@@ -2,6 +2,6 @@ function sayHey() {
   return "Hey!"
 }
 
-functon sayHeyFriend(name) {
-  debugger;
+function sayHeyFriend(name) {
+  return "Hey, " + name + "!";
 }
