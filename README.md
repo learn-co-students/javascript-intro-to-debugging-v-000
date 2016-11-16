@@ -2,12 +2,6 @@
 
 Testing is important no matter what language we're working with. There is always the chance that our code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. JavaScript provides tons of testing libraries; we're going to use [Mocha](http://mochajs.org/). JavaScript comes with a built in debugging tool, called `debugger`.
 
-## Prefatory Note
-
-These debugging techniques are environment-dependent, and they are slowly
-rolling out across Learn's curriculum. We'll update lessons and labs as quickly
-as we can.
-
 ## Objectives
 
 1. Read Mocha tests
@@ -30,7 +24,7 @@ Well, that's not very exciting. Let's make sure we can get these tests to pass!
 
 ### Solving the first test
 
-We're just getting started, so we expected that all our tests would fail. Let's go ahead and tackle the first test. The first error we see from Jasmine is `ReferenceError: sayHey is not defined`. So let's go ahead and define that function in `index.js`.
+We're just getting started, so we expected that all our tests would fail. Let's go ahead and tackle the first test. The first error we see from Mocha is `ReferenceError: sayHey is not defined`. So let's go ahead and define that function in `index.js`.
 
 ```js
 function sayHey() {
@@ -78,26 +72,19 @@ function sayHeyFriend(name) {
 
 #### Step Two - Open the Console
 
-Now we'll run our tests so that they're aware of the debugger. Simply run `npm run debug` if you're working locally, or `npm run debug-ide` if you're working in the IDE.
+Now open the file `test/index-test.html` in Google Chrome. [If you're on the Learn IDE, you can open it by typing `httpserver` in the terminal, going to the IP address that the Learn IDE spits out and then navigating to /test and then index-test.html.] We should see... well, nothing. Open the console (`command` + `option` + `J` on a Mac in Chrome), refresh the page, and _voilà_ — your debugger awaits. Your entire JavaScript console is now within the context of this function, meaning that you can enter `name` in console, and you should see `'Kristin'`. As you can probably guess, this debugger is enormously powerful — it provides a bit too much for us to cover here. But if you'd like to learn more, we recommend reading through [Debugging JavaScript][MDN - Debugging JavaScript] and [debugger][MDN - Debugger] on MDN.
 
-**Flat fact**: `npm` is a package manager originally intended for the Node.js runtime but now used by the entire JavaScript ecosystem. We use it here because we want our tests to run flexibly in a lot of different environments — it helps us pull in the libraries that our code needs to run.
-
-If you're working locally, an instance of Chrome should open up; from the IDE, you'll be presented with a URL like this
-
-![ide debugger](https://curriculum-content.s3.amazonaws.com/skills-based-js/ide_debugger.png)
-
+![ide debugger](https://s3.amazonaws.com/learn-verified/javascript-intro-to-debugging-httpserver.png)
 **Your URL will be slightly different.** Copy and paste this URL into Chrome (you _must_ use Chrome for debugging in this case).
 
-From there, open your browser's console. (Remember, the shortcut to open the console in Chrome is `command` + `option` + `J`.)
-
-The page will be mostly greyed out and the message "Paused in debugger" should appear up top.
+>Note: Checkout running [background tasks](https://www.digitalocean.com/community/tutorials/how-to-use-bash-s-job-control-to-manage-foreground-and-background-processes) so that you can run `httpserver` _and_ still run other commands in the Learn IDE!
 
 #### Step Three - Investigate the State
 
 You should see your function displayed in Chrome. Hover over the `name` argument
 — we expect it to be `'Kristin'`, and indeed, it is!
 
-![name revealed in console](https://curriculum-content.s3.amazonaws.com/skills-based-js/javascript_debugger_open.png)
+![name revealed in console](https://s3.amazonaws.com/learn-verified/javascript-intro-to-debugging-inspect-state.png)
 
 #### Step Four - Find the Bug
 
@@ -110,30 +97,6 @@ function sayHeyFriend(name){
 ```
 
 Now we'll click the blue forward arrow button to exit debugger. It's pretty much the same as typing `exit` in Pry: ![debuggers blue unpause arrow](http://web-dev-readme-photos.s3.amazonaws.com/js/jasmine-and-debugging/blue-arrow.png)
-
-### Using the `debugger` — the easy way
-
-Since we're writing browser-based JavaScript, one would expect that our tests
-could run in the browser. Let's add a `debugger` statement back to
-`sayHeyFriend()`:
-
-```javascript
-function sayHeyFriend(name) {
-  debugger
-  return name;
-}
-```
-
-Now open the file `test/index-test.html`. We should see... well, nothing. Open
-the console (`command` + `option` + `J` on a Mac in Chrome), refresh the page,
-and _voilà_ — your debugger awaits. Your entire JavaScript console is now
-within the context of this function, meaning that you can enter `name` in
-console, and you should see `'Kristin'`. As you can probably guess, this
-debugger is enormously powerful — it provides a bit too much for us to cover
-here. But if you'd like to learn more, we recommend reading through [Debugging
-JavaScript][MDN - Debugging JavaScript]
-and [debugger][MDN - Debugger]
-on MDN.
 
 ## Wrap up - Pass those tests
 
@@ -150,6 +113,25 @@ function sayHeyFriend(name){
 ```
 
 Go ahead and run `learn` again, and both tests should pass!
+
+## Why this works!
+
+Here is a quick note on why this works and it will be _very_ helpful in understanding how to use this technique on other labs!
+
+Take a look at the `index-test.html` file. Near the bottom you'll see this:
+
+```js
+<script src="mocha.js"></script>
+<script src="https://unpkg.com/expect/umd/expect.min.js"></script>
+<script>mocha.setup('bdd');</script>
+<script src="../index.js"></script>
+<script src="intro-test.js"></script>
+<script>
+  mocha.run();
+</script>
+```
+
+What's happening here is that we're loading up all the Javascript files needed to run the test and the we're calling `mocha.run()`. This function will run our tests in the browser for us! The reason why this is so important is that you'll see some labs _do not call this by default_. You'll be able to open up pages like `index.html` to test the pages you build, but take a look and you'll probably see all the Javascript files loading up, but _not_ `mocha.run()`. No problem! Now that we know what the command is, we can just run it ourselves for these future labs. This will allow you to keep using debugger with the tests on Learn!
 
 ## Resources
 - [MDN - Debugger]
