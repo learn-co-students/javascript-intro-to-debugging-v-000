@@ -133,6 +133,10 @@ Take a look at the `index-test.html` file. Near the bottom you'll see this:
 
 What's happening here is that we're loading up all the Javascript files needed to run the test and the we're calling `mocha.run()`. This function will run our tests in the browser for us! The reason why this is so important is that you'll see some labs _do not call this by default_. You'll be able to open up pages like `index.html` to test the pages you build, but take a look and you'll probably see all the Javascript files loading up, but _not_ `mocha.run()`. No problem! Now that we know what the command is, we can just run it ourselves for these future labs. This will allow you to keep using debugger with the tests on Learn!
 
+## Video Walkthrough
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/orxiGMn0yCg" frameborder="0" allowfullscreen></iframe>
+
 ## Resources
 - [MDN - Debugger]
 - [MDN - Debugging JavaScript]
