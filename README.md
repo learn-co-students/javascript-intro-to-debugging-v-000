@@ -135,7 +135,7 @@ What's happening here is that we're loading up all the Javascript files needed t
 
 ## Video Walkthrough
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/orxiGMn0yCg" frameborder="0" allowfullscreen></iframe>
+<iframe width="960" height="720" src="https://www.youtube.com/embed/orxiGMn0yCg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Resources
 - [MDN - Debugger]
