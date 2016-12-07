@@ -1,6 +1,6 @@
 # JavaScript Debugging with Mocha
 
-Testing is important no matter what language we're working with. There is always the chance that our code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. JavaScript provides tons of testing libraries; we're going to use [Mocha](http://mochajs.org/). JavaScript comes with a built in debugging tool, called `debugger`.
+Testing is important no matter what language we're working with. There is always the chance that our code won't behave as expected. Tests and debugging skills help us make sure that our code always works appropriately. JavaScript provides tons of testing libraries; we're going to use [Mocha](http://mochajs.org/). JavaScript comes with a built in debugging tool, called `debugger`. ###
 
 ## Objectives
 
