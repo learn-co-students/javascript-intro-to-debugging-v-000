@@ -6,7 +6,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "pug": "^2.0.3"
+  },
   "devDependencies": {
     "expect": "^1.20.2",
     "jsdom": "^9.4.1",
